@@ -73,7 +73,7 @@ def run_test_draw_squares_from_circle():
 
 
 def draw_squares_from_circle(n, circle, window):
-
+sw
     """
     What comes in:  Three arguments:
       -- A positive integer n.
