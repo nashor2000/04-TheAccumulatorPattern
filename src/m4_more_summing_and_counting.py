@@ -6,13 +6,12 @@ in several classic forms:
    AVERAGING:  summing and counting combined
 and
    FACTORIAL:  x = x * k
-
 Subsequent modules let you practice the ACCUMULATOR pattern
 in its "in graphics" form:
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Xuechen Bai.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import math
@@ -103,9 +102,13 @@ def run_test_sum_from():
 # There is no code to be written for this TO DO (just reading).
 # ----------------------------------------------------------------------
 
-
 def sum_from(m, n):
-    """
+    a=0
+    for k in range (m,n+1):
+        a=a+(k)
+    return a
+
+"""
     What comes in:  The arguments are two integers m and n, with m <= n.
     What goes out:  Returns the sum of the integers from m to n,
       inclusive.
@@ -164,7 +167,11 @@ def run_test_factorial():
 
 
 def factorial(n):
-    """
+    for k in range (n+1):
+        a= n*(n-k)
+    return a
+
+"""
     What comes in:  The sole argument is a non-negative integer n.
     What goes out:  Returns n!, that is, n x (n-1) x (n-2) x ... x 1.
     Side effects:   None.
@@ -225,7 +232,14 @@ def run_test_count_cosines_from():
 
 
 def count_cosines_from(m, n, x):
-    """
+    a=0
+    for k in range (m,n):
+        if math.cos(k)>x:
+            a=a+1
+    return a
+
+
+"""
     What comes in:  The three arguments are non-negative integers
       m and n, with m <= n, and a number x.
     What goes out:  Returns the number of integers from m to n,
@@ -279,6 +293,11 @@ def run_test_sum_unit_fractions_from():
 
 
 def sum_unit_fractions_from(m, n):
+    for k in range (m,n):
+        a=a+1/k
+    return a
+
+
     """
     What comes in:  Two positive integers m and n with m <= n.
     What goes out:  Returns the sum:

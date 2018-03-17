@@ -7,10 +7,8 @@ A subsequent module lets you practice the ACCUMULATOR pattern in another classic
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Xuechen Bai.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
-
-
 # ----------------------------------------------------------------------
 # Students: As you work each of these problems, ask yourself:
 #   1. Do I need a loop?
@@ -21,6 +19,7 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 #        -- IN the loop?
 #        -- AFTER the loop?
 # ----------------------------------------------------------------------
+import math
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_sum_more_cosines()
@@ -61,6 +60,15 @@ def run_test_sum_more_cosines():
     answer = sum_more_cosines(0, 3)
     print('Test 1 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
+    expected = 1.9977347  # This is APPROXIMATELY the correct answer.
+    answer = sum_more_cosines(5, 7)
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+    expected = -0.8159  # This is APPROXIMATELY the correct answer.
+    answer = sum_more_cosines(2, 6)
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
 
     # ------------------------------------------------------------------
     # TO DO: 2 (continued).
@@ -69,7 +77,11 @@ def run_test_sum_more_cosines():
 
 
 def sum_more_cosines(m, n):
-    """
+    a=0
+    for k in range (n-m+1):
+        a=a+math.cos(m+k)
+    return a
+"""
     What comes in:  The two arguments are integers m and n, with m <= n.
     What goes out:  Returns the sum
        cos(m) + cos(m+1) + cos(m+2) +  ...  cos(n)
@@ -80,6 +92,8 @@ def sum_more_cosines(m, n):
          which is approximately 0.13416
       -- sum_more_cosines(-4, 1)  returns
             cos(-4) + cos(-3) + cos(-2) + cos(-1) + cos(0) + cos(1)
+            
+            
          which is approximately 0.02082.
     """
     # ------------------------------------------------------------------
@@ -116,6 +130,26 @@ def run_test_count_sines_from():
     answer = count_sines_from(3, 9)
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
+    expected = 3
+    answer = count_sines_from(4, 6)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 4
+    answer = count_sines_from(3, 7)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 6
+    answer = count_sines_from(2, 10)
+    print('Test 4 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 8
+    answer = count_sines_from(4, 13)
+    print('Test 5 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 4
+    answer = count_sines_from(2, 8)
+    print('Test 6 expected:', expected)
+    print('       actual:  ', answer)
 
     # ------------------------------------------------------------------
     # TO DO: 4 (continued).
@@ -124,7 +158,14 @@ def run_test_count_sines_from():
 
 
 def count_sines_from(m, n):
-    """
+    a=0
+    for k in range (n-m+1):
+        if(math.sin(m+k)<0.5):
+            a = a +1
+    return a
+
+
+"""
     What comes in:  The two arguments are integers m and n, with m <= n.
     What goes out:  Returns the number of integers from m to n,
        inclusive, whose sine is less than 0.5.
@@ -172,6 +213,31 @@ def run_test_count_sines_vs_cosines():
     answer = count_sines_vs_cosines(101)
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
+    expected = 6
+    answer = count_sines_vs_cosines(5)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 4
+    answer = count_sines_vs_cosines(3)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 0
+    answer = count_sines_vs_cosines(0)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 1
+    answer = count_sines_vs_cosines(1)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 4
+    answer = count_sines_vs_cosines(3)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    expected = 1001
+    answer = count_sines_vs_cosines(1001)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
 
     # ------------------------------------------------------------------
     # TO DO: 6 (continued).
@@ -180,7 +246,13 @@ def run_test_count_sines_vs_cosines():
 
 
 def count_sines_vs_cosines(m):
-    """
+    a = 0
+    for k in range(2*m+1):
+         if (math.sin(k-m) > math.cos(k-m)):
+                a = a + 1
+    return a
+
+"""
     What comes in:  The sole argument is a non-negative integer m.
     What goes out:  Returns the number of integers from -m to m,
        inclusive, whose sine is greater than its cosine.

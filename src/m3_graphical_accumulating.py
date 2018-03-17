@@ -9,7 +9,7 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
+         their colleagues and Xuechen Bai.
 """  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
@@ -69,7 +69,18 @@ def run_test_draw_parallel_lines():
 
 
 def draw_parallel_lines(n, point, length, window):
-    """
+    a = point.y
+    b = point.x
+
+    for k in range(n+1):
+        c = rg.Point(b + length, a + k * 30)
+        p = rg.Point(b, a + k * 30)
+        d = rg.Line(c, p)
+        d.attach_to(window)
+
+    window.render()
+
+"""
     What comes in: The four arguments are:
       -- A positive integer n.
       -- An rg.Point.
@@ -111,6 +122,8 @@ def draw_parallel_lines(n, point, length, window):
     # ------------------------------------------------------------------
 
 
+
+
 def run_test_draw_lines():
     """ Tests the   draw_lines  function. """
     print()
@@ -134,7 +147,18 @@ def run_test_draw_lines():
 
 
 def draw_lines(n, point, window):
-    """
+    a = point.x
+    b = point.y
+
+    for k in range(n):
+        c = rg.Point(a+100,b-100+k*200/(n-1))
+        d = rg.Line(point, c)
+        print(k)
+        d.attach_to(window)
+
+    window.render()
+
+"""
     What comes in: The three arguments are:
       -- A integer n that is at least 2.
       -- An rg.Point.
